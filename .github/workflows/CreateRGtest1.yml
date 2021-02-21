@@ -18,4 +18,3 @@ jobs:
           --location centralus \
           --templateUri https://raw.githubusercontent.com/admbmg/AutomateDemo/main/TemplateTest1.json \
           --templateParameterUri https://raw.githubusercontent.com/admbmg/AutomateDemo/main/TemplateTest1parameters.json
-      
