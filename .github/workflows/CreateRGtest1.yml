@@ -1,0 +1,21 @@
+on: [push]
+
+name: AzureLoginSample
+
+jobs:
+
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+
+    - uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_BMGSUB_SUB_SECRET }}
+
+    - run: |
+      az deployment sub create \
+          --name demoSubDeployment \
+          --location centralus \
+          --templateUri https://raw.githubusercontent.com/admbmg/AutomateDemo/main/TemplateTest1.json \
+          --templateParameterUri https://raw.githubusercontent.com/admbmg/AutomateDemo/main/TemplateTest1parameters.json
+      
